@@ -8,9 +8,12 @@ if [ -z "$OLLAMA_MODEL" ]; then
   exit 1
 fi
 
-# Wait a bit to ensure the server has started
-echo "Waiting for Ollama server to start..."
-sleep 10
+# Check if OLLAMA_COOLDOWN is set, and default to 10 if not
+COOLDOWN_TIME=${OLLAMA_COOLDOWN_IN_SECONDS:-10}
+
+# Wait for the Ollama server to start, using the cooldown time
+echo "Waiting for Ollama server to start for $COOLDOWN_TIME seconds..."
+sleep $COOLDOWN_TIME
 
 # Pull the specified model
 echo "Pulling model: $OLLAMA_MODEL"
