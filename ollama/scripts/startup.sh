@@ -11,8 +11,6 @@ fi
 # Check if OLLAMA_COOLDOWN is set, and default to 10 if not
 COOLDOWN_TIME=${OLLAMA_COOLDOWN_IN_SECONDS:-10}
 
-echo "Using cooldown time: $COOLDOWN_TIME seconds"
-
 # Wait for the Ollama server to start, using the cooldown time
 echo "Waiting for Ollama server to start for $COOLDOWN_TIME seconds..."
 sleep $COOLDOWN_TIME
