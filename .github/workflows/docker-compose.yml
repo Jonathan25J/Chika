@@ -15,9 +15,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create .env file with secrets
-        run: |
-          echo "APP_TOKEN=${{ secrets.APP_TOKEN }}" >> .env
-          echo "APP_CLIENT_ID=${{ secrets.APP_CLIENT_ID }}" >> .env
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+
 
       - name: Run docker-compose
         uses: hoverkraft-tech/compose-action@v2.0.1
