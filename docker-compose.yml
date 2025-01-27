@@ -14,4 +14,6 @@ services:
       - ./ollama:/root/.ollama
     environment:
       - OLLAMA_MODEL=$OLLAMA_MODEL
+      - GIN_MODE=$OLLAMA_MODE
+      - OLLAMA_COOLDOWN_IN_SECONDS=$OLLAMA_COOLDOWN_IN_SECONDS
     entrypoint: ['/bin/sh', '/root/.ollama/scripts/startup.sh']
