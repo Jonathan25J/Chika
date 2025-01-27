@@ -1,0 +1,8 @@
+# General
+node_modules/*
+.env
+
+# Ollama
+ollama/models/*
+ollama/id_ed25519
+ollama/id_ed25519.pub

@@ -1,0 +1,21 @@
+{
+  "name": "chika",
+  "version": "1.0.0",
+  "description": "Discord app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Jonathan25J",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.17.3",
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0"
+  }
+}

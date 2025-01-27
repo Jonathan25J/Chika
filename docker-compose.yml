@@ -1,0 +1,17 @@
+services:
+  chika:
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+  ollama:
+    image: ollama/ollama:0.5.7
+    ports:
+      - ${OLLAMA_PORT}:${OLLAMA_PORT}
+    volumes:
+      - ./ollama:/root/.ollama
+    environment:
+      - OLLAMA_MODEL=$OLLAMA_MODEL
+    entrypoint: ['/bin/sh', '/root/.ollama/scripts/startup.sh']

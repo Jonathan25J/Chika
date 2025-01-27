@@ -1,0 +1,25 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create .env file with secrets
+        run: |
+          echo "APP_TOKEN=${{ secrets.APP_TOKEN }}" >> .env
+          echo "APP_CLIENT_ID=${{ secrets.APP_CLIENT_ID }}" >> .env
+
+      - name: Run docker-compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
+        with:
+          compose-file: "./docker-compose.yml"
