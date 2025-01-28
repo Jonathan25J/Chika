@@ -1,5 +1,5 @@
-const { SlashCommandBuilder, InteractionContextType } = require('discord.js');
-const { createEmbedMessage, COLORS } = require('../../utils');
+const { SlashCommandBuilder } = require('discord.js');
+const { createEmbedMessage } = require('../../utils');
 const ollamaService = require('../../services/ollamaService');
 
 module.exports = {
@@ -9,8 +9,7 @@ module.exports = {
         .addStringOption(option =>
             option.setName('prompt')
                 .setDescription('What do you want to ask?')
-                .setRequired(true))
-        .setContexts(InteractionContextType.Guild),
+                .setRequired(true)),
 
     async execute(interaction) {
         const prompt = interaction.options.getString('prompt');
