@@ -52,8 +52,8 @@ class OllamaService {
 const ollamaService = new OllamaService();
 module.exports = ollamaService;
 
-function replaceThinkTags(message) {
-    return message.replace(/[`\s]*[\[\<]think[\>\]](.*?)[\[\<]\/think[\>\]][`\s]*|^[`\s]*([\[\<]thinking[\>\]][`\s]*.*)$/ims, '');
+function replaceThinkTags(message) {/<think.*?>.*?<\/think.*?>/gs
+    return message.replace(/.*<\/(think|thinking)>/is, '');
 }
 
 function createRoleMessages(messages) {
