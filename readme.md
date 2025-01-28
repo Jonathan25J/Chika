@@ -39,7 +39,7 @@ OLLAMA_COOLDOWN_IN_SECONDS = [COOLDOWN IN SECONDS]
 ## The default prompt given to the model
 OLLAMA_MODEL_DEFAULT_PROMPT = [DEFAULT PROMPT]
 
-# The amount of messages read from the Discord DM channel before replying
+# The amount of messages that the model reads from the Discord DM channel before replying
 OLLAMA_MODEL_FETCH_MESSAGE_AMOUNT = [AMOUNT MESSAGES] (for example 10)
 
 OLLAMA_MODEL_TEMPERATURE = [MODEL TEMPERATURE]
