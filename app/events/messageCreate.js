@@ -13,7 +13,7 @@ module.exports = {
         if (!promptMessage) return;
 
         const fetchMessageAmount = Math.abs(parseInt(process.env.OLLAMA_MODEL_FETCH_MESSAGE_AMOUNT, 10)) || 10;
-        const fetchedMessages = await message.channel.messages.fetch({ limit: fetchMessageAmount });
+        const fetchedMessages = await message.channel.messages.fetch({ limit: fetchMessageAmount + 1 });
         const messageHistory = Array.from(fetchedMessages.values());
 
         const lastMessage = messageHistory[1];
