@@ -17,7 +17,7 @@ class OllamaService {
                 model: this.model,
                 prompt: prompt,
                 stream: false,
-                options: { "temperature": this.temperature, "top_p": 1.0, "num_ctx": this.maxInputTokenLength, "num_predict": this.maxOutputTokenLength, "stop": ["<think></think>"] }
+                options: { "temperature": this.temperature, "top_p": 1.0, "num_ctx": this.maxInputTokenLength, "num_predict": this.maxOutputTokenLength }
             });
 
             const message = replaceThinkTags(response.response);
@@ -37,7 +37,7 @@ class OllamaService {
                 model: this.model,
                 messages: messages,
                 stream: false,
-                options: { "temperature": this.temperature, "top_p": 1.0, "num_ctx": this.maxInputTokenLength, "num_predict": this.maxOutputTokenLength, "stop": ["<think></think>"] }
+                options: { "temperature": this.temperature, "top_p": 1.0, "num_ctx": this.maxInputTokenLength, "num_predict": this.maxOutputTokenLength }
             });
 
             const message = replaceThinkTags(response.message.content);
@@ -52,7 +52,8 @@ class OllamaService {
 const ollamaService = new OllamaService();
 module.exports = ollamaService;
 
-function replaceThinkTags(message) {/<think.*?>.*?<\/think.*?>/gs
+function replaceThinkTags(message) {
+    /<think.*?>.*?<\/think.*?>/gs
     return message.replace(/.*<\/(think|thinking)>/is, '');
 }
 
