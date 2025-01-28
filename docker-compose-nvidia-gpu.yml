@@ -18,6 +18,7 @@ services:
       - OLLAMA_MODEL=$OLLAMA_MODEL
       - GIN_MODE=$OLLAMA_MODE
       - OLLAMA_COOLDOWN_IN_SECONDS=$OLLAMA_COOLDOWN_IN_SECONDS
+      - NVIDIA_VISIBLE_DEVICES=all
       - OLLAMA_GPU=true
       - OLLAMA_BATCH_SIZE=512
       - OLLAMA_PARALLELISM=8 
@@ -25,6 +26,13 @@ services:
       - OLLAMA_THREADS=4
       - OLLAMA_KEEP_ALIVE=$OLLAMA_KEEP_ALIVE
     entrypoint: ['/bin/sh', '/root/.ollama/scripts/startup.sh']
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['all']
+            capabilities: [gpu]
 
 volumes:
   ollama:
