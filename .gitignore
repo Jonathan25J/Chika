@@ -1,6 +1,8 @@
 # General
-node_modules/*
 .env
+
+# App
+app/node_modules/*
 
 # Ollama
 ollama/models/*
