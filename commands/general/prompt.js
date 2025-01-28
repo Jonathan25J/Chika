@@ -7,16 +7,17 @@ module.exports = {
         .setName('prompt')
         .setDescription('Prompt the bot to say something.')
         .addStringOption(option =>
-            option.setName('message')
+            option.setName('prompt')
                 .setDescription('What do you want to ask?')
                 .setRequired(true))
         .setContexts(InteractionContextType.Guild),
 
     async execute(interaction) {
-        const promptMessage = interaction.options.getString('message');
+        const prompt = interaction.options.getString('prompt');
 
         await interaction.deferReply();
-        const response = await ollamaService.generateResponse(promptMessage)
+
+        const response = await ollamaService.prompt(prompt)
 
         if (response) {
             await interaction.editReply({ embeds: [createEmbedMessage(interaction.guild, response)] });
