@@ -7,7 +7,7 @@
 [![Build](https://github.com/Jonathan25J/Chika/actions/workflows/docker-compose.yml/badge.svg)](https://github.com/Jonathan25J/Chika/actions/workflows/docker-compose.yml)
 ![!JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&)
 
-With the Chika Discord app is possible to interact with your own hosted language model on Discord. In servers is it possible to use the `/prompt [prompt]` command. You can have conversations with the app in your DM
+With the Chika Discord app is possible to interact with your own hosted language model on Discord. You can have conversations with the app in your DM or use the `/prompt [prompt]` command
 
 The app will only listen to one message at a time in your DM. It will look at the most recent message you send after the app has responded. If the app hasn't replied to that message, delete and resend it to trigger a response
 
@@ -16,12 +16,11 @@ The following language models are tested: [*deepseek-r1:1.5b*](https://ollama.co
 
 **Disclaimer**: I am not a professional in the area of language models, so it's possible that the code is not efficient
 
-
 ## Invite app
 It's not possible to invite this app.
 
 ## Hosting
-- Have [Node](https://nodejs.org/en) and [Docker Engine](https://docs.docker.com/engine/) installed
+- Have [Docker Engine](https://docs.docker.com/engine/) installed
 - Create a `.env` file in the root folder with the following content 
 ```bash
 # App
@@ -48,7 +47,5 @@ OLLAMA_MODEL_MAX_INPUT_TOKEN_LENGTH = [MODEL MAX INPUT TOKEN LENGTH]
 OLLAMA_MODEL_MAX_OUTPUT_TOKEN_LENGTH = [MODEL MAX OUTPUT TOKEN LENGTH]
 ```
 - Replace the values inside the brackets `[]` with your values and remove the brackets itself
-- Run `docker compose up -d` or `docker compose -f docker-compose-nvidia-gpu.yml up` in case you have a Nvidia GPU. Look [here](https://hub.docker.com/r/ollama/ollama) if you are on Linux or have a AMD GPU
-- run `CD app`
-- run `npm install`
-- Run `node deploy-commands`
+- Run `docker compose up -d` or `docker compose -f docker-compose-nvidia-gpu.yml up` in case you have a Nvidia GPU. Look [here](https://hub.docker.com/r/ollama/ollama) if you are on Linux and have a Nvidia GPU or have a AMD GPU
+- run `docker exec -it [CHIKA-CONTAINER] node deploy-commands`, replace `[CHIKA-CONTAINER]` with the right container name
