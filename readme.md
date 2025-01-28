@@ -17,7 +17,7 @@ The following language models are tested: [*deepseek-r1:1.5b*](https://ollama.co
 **Disclaimer**: I am not a professional in the area of language models, so it's possible that the code is not efficient
 
 ## Invite app
-It's not possible to invite this app.
+It's not possible to invite this app
 
 ## Hosting
 - Have [Docker Engine](https://docs.docker.com/engine/) installed
