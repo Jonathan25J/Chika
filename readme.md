@@ -49,3 +49,6 @@ OLLAMA_MODEL_MAX_OUTPUT_TOKEN_LENGTH = [MODEL MAX OUTPUT TOKEN LENGTH]
 - Replace the values inside the brackets `[]` with your values and remove the brackets itself
 - Run `docker compose up -d` or `docker compose -f docker-compose-nvidia-gpu.yml up` in case you have a Nvidia GPU. Look [here](https://hub.docker.com/r/ollama/ollama) if you are on Linux and have a Nvidia GPU or have a AMD GPU
 - run `docker exec -it [CHIKA-CONTAINER] node deploy-commands`, replace `[CHIKA-CONTAINER]` with the right container name
+
+## Running with OpenWeb UI
+OpenWeb UI manages its own configurations, while the environment file primarily serves the Discord app. It's important that the `Context Length` in the OpenWeb UI is set to the same length as `OLLAMA_MODEL_MAX_INPUT_TOKEN_LENGTH` in the environment file. Otherwise Ollama will reload the same model whenever you switch between Discord and the OpenWeb UI
