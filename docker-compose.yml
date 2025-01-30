@@ -25,6 +25,13 @@ services:
       - OLLAMA_THREADS=4
       - OLLAMA_KEEP_ALIVE=$OLLAMA_KEEP_ALIVE
     entrypoint: ['/bin/sh', '/root/.ollama/scripts/startup.sh']
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - 3000:8080
+    volumes:
+      - open-webui:/app/backend/data
 
 volumes:
   ollama:
+  open-webui:
